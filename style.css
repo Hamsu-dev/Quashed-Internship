@@ -189,8 +189,15 @@ body {
 .followers-wrapper{
   display: grid;
   grid-template-columns: 1fr;
+  perspective: 1000px;
 }
 
+.followers-wrapper:hover > .follower-wrapper__follower-data{
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+/* card */
 .followers-wrapper__follower-data{
   display: flex;
   flex-direction: column;
@@ -203,17 +210,24 @@ body {
   position: relative;
   color: var(--text-font-color);
   cursor: pointer;
+  transition: transform 1500ms;
+  transform-style: preserve-3d;
+
 }
+
 
 .followers-wrapper__follower-data:hover{
   background-color: var(--hover);
+  transform: rotateY(-180deg);
 }
 
+/* front */
 .follower-wrapper__follower-data__username{
   display: flex;
   align-items: center;
   margin: 3% 0;
   font-weight: 700;
+  backface-visibility: hidden;
 }
 
 .follower-wrapper__follower-data__username > img{
